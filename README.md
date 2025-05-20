@@ -1,5 +1,5 @@
 keywords:  
-#  AI Visual Novel, Chatbot Platform, LLMAPI  
+#  AI Visual Novel, Chatbot Platform, LLM API  
 
 ## file structure  
 main/  
