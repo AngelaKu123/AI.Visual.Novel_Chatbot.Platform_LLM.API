@@ -1,6 +1,7 @@
 #  Chatbot Platform LLM API
 
-##　file structure
+file structure<br>
+<p>
 chatbot/
 │
 ├── main.py
@@ -25,3 +26,4 @@ chatbot/
 |__ sd/
     |__ prompt.py
     |__ sd_api.py
+<p/>
