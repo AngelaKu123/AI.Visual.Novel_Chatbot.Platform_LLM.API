@@ -1,29 +1,28 @@
-#  Chatbot Platform LLM API
+#  Chatbot Platform LLM API  
 
-file structure<br>
-<p>
-chatbot/
-│
-├── main.py
-├── characters/
-│   ├── __init__.py
-│   ├── IP1 
-│   ├── IP2
-│   └── IP3
-└── utils/
-    ├── __init__.py
-    └── character_loader.py
-    └── character_creation.py
-└── gui_chatroom.py
-    └── gui_setup.py
-    └── gui_helper.py
-    └── narrator.py
-    └── recommender.py
-    └── user_data.py
-    └── story_card_loader
-└── users/
-     └── User.json
-|__ sd/
-    |__ prompt.py
-    |__ sd_api.py
-<p/>
+## file structure  
+chatbot/  
+│  
+├── main.py  
+├── characters/  
+&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;├── IP1  
+&nbsp;&nbsp;&nbsp;&nbsp;├── IP2  
+&nbsp;&nbsp;&nbsp;&nbsp;└── IP3  
+└── utils/  
+&nbsp;&nbsp;&nbsp;&nbsp;├── __init__.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── character_loader.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── character_creation.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── gui_chatroom.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── gui_setup.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── gui_helper.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── narrator.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── recommender.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── user_data.py  
+&nbsp;&nbsp;&nbsp;&nbsp;└── story_card_loader  
+└── users/  
+&nbsp;&nbsp;&nbsp;&nbsp;└── User.json  
+|__ sd/  
+&nbsp;&nbsp;&nbsp;&nbsp;|__ prompt.py  
+&nbsp;&nbsp;&nbsp;&nbsp;|__ sd_api.py  
+
