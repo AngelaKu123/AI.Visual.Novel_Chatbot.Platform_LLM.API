@@ -1,7 +1,7 @@
 #  Chatbot Platform LLM API  
 
 ## file structure  
-chatbot/  
+main/  
 │  
 ├── main.py  
 ├── characters/  
