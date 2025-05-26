@@ -1,11 +1,9 @@
 # changed process_turn
-"""
-from sd.prompt import generate_sd_prompt  #
-    from utils.memory import MemoryManager  #
-    mem = MemoryManager()  #
-    result = generate_sd_prompt(mem, ch_name=character["name"])  #
-    print(result)  #
-"""
+#from sd.prompt import generate_sd_prompt  #
+#    from utils.memory import MemoryManager  #
+#    mem = MemoryManager()  #
+#    result = generate_sd_prompt(mem, ch_name=character["name"])  #
+#    print(result)  #
 
 
 from typing import List, Tuple, Dict
