@@ -22,7 +22,7 @@ def generate_sd_prompt(mem: MemoryManager, model_name="llama3", ch_name: str = "
 You are a helpful assistant generating prompts for image generation via Stable Diffusion.
 
 Your task:
-- Output a JSON object with three keys: "prompt", "negative_prompt", and "style".
+- Output a JSON object with three keys: "prompt".
 - The "prompt" field must be a **comma-separated list of tags** (Stable Diffusion format). Do NOT use full sentences.
 - Tags should describe the setting, lighting, emotion, style, etc.
 - The output must be **valid JSON**. Do NOT include explanations or greetings.
@@ -64,7 +64,5 @@ Extracted facts and inspiration:
         print("⚠️ The model output is not valid JSON: ")
         print(response)
         return {
-            "prompt": "",
-            "negative_prompt": "",
-            "style": ""
+            "prompt": ""
         }
