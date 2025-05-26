@@ -1,4 +1,4 @@
-# changed:
+# changed for sd:
 # def process_turn
 #     from sd.prompt import generate_sd_prompt  #
 #     from utils.memory import MemoryManager  #
