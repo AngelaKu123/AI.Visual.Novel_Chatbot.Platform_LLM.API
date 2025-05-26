@@ -135,8 +135,12 @@ def process_turn(
     from sd.prompt import generate_sd_prompt  #
     from utils.memory import MemoryManager  #
     mem = MemoryManager()  #
-    result = generate_sd_prompt(mem)  #
+    result = generate_sd_prompt(mem, ch_name=character["name"])  #
     print(result)  #
+
+    from sd.sd_test import generate_image_from_json  #
+    generate_image_from_json("prompt.json", output_name=f"{character['name']}_turn.png")  #
+
 
     # 5) Append to raw context
     new_context = (
