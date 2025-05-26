@@ -4,6 +4,8 @@
 #    mem = MemoryManager()  #
 #    result = generate_sd_prompt(mem, ch_name=character["name"])  #
 #    print(result)  #
+#    from sd.sd_test import generate_image_from_json  #
+#    generate_image_from_json("prompt.json", output_name=f"{character['name']}_turn.png")  #
 
 
 from typing import List, Tuple, Dict
@@ -145,6 +147,9 @@ def process_turn(
     mem = MemoryManager()  #
     result = generate_sd_prompt(mem, ch_name=character["name"])  #
     print(result)  #
+    
+    from sd.sd_test import generate_image_from_json  #
+    generate_image_from_json("prompt.json", output_name=f"{character['name']}_turn.png")  #
 
     # 5) Append to raw context
     new_context = (
