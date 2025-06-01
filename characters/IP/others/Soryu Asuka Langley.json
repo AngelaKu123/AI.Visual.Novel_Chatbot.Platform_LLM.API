@@ -1,5 +1,7 @@
 {
-    "name": "Asuka",
+    "IP": "Neon Genesis Evangelion",
+    "name": "Asuka Soryu Langley",
+    "lora": "asuka",
     "age": 14,
     "height_cm": 155,
     "tags": ["evangelion", "tsundere", "loud", "aggressive", "main", "sci-fi", "hotheaded", "prideful", "child prodigy"],
