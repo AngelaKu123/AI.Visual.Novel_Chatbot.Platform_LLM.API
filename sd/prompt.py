@@ -63,7 +63,7 @@ Extracted facts and inspiration:
         ch_marker = f"((({ch_name})))" if ch_name else ""
         lora_tag = f"<lora:{ch_lora}:1>" if ch_lora else ""
         raw_prompt = result.get("prompt", "").strip()
-        new_prompt = ", ".join(filter(None, [ch_tag, lora_tag, raw_prompt]))
+        new_prompt = ", ".join(filter(None, [ch_marker, lora_tag, raw_prompt]))
         result["prompt"] = new_prompt
 
         # ── 5) 決定輸出路徑 ───────────────────────────────────────────────
