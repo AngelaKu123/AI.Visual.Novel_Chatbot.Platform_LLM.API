@@ -13,6 +13,7 @@ def generate_sd_prompt(
     mem: MemoryManager,
     model_name: str = "llama3",
     ch_name: str = "",
+    ch_lora: str = "",
     output_dir: Optional[Path | str] = None,
     filename: str = "prompt.json"
 ) -> dict:
@@ -29,7 +30,6 @@ def generate_sd_prompt(
     fact_str = "\n".join(f"{item['type']}: {item['text']}" for item in facts)
 
     # ── 2) 建立 prompt template ─────────────────────────────────────────
-    ch_marker = f"((({ch_name})))" if ch_name else ""
     prompt_template = ChatPromptTemplate.from_template(f"""
 You are a helpful assistant generating prompts for image generation via Stable Diffusion.
 
@@ -60,8 +60,8 @@ Extracted facts and inspiration:
         result = json.loads(response)
 
         # prepend character + LoRA tags
-        ch_tag  = f"((({ch_name})))" if ch_name else ""
-        lora_tag = f"<lora:{ch_name}:1>" if ch_name else ""
+        ch_marker = f"((({ch_name})))" if ch_name else ""
+        lora_tag = f"<lora:{ch_lora}:1>" if ch_lora else ""
         raw_prompt = result.get("prompt", "").strip()
         new_prompt = ", ".join(filter(None, [ch_tag, lora_tag, raw_prompt]))
         result["prompt"] = new_prompt
