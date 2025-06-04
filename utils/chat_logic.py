@@ -132,11 +132,14 @@ def process_turn(
     memory.update_summary(user_input, full_reply)
     memory.extract_facts(user_input, full_reply)
 
-    from sd.prompt import generate_sd_prompt  #
-    from utils.memory import MemoryManager  #
-    mem = MemoryManager()  #
-    result = generate_sd_prompt(mem)  #
-    print(result)  #
+    # Optional: generate a Stable Diffusion prompt from the current memory
+    from sd.prompt import generate_sd_prompt
+
+    try:
+        sd_prompt = generate_sd_prompt(memory)
+        print(sd_prompt)
+    except Exception as exc:
+        print(f"[process_turn] Failed to generate SD prompt: {exc}")
 
     # 5) Append to raw context
     new_context = (

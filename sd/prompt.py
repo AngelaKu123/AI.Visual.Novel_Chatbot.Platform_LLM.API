@@ -2,9 +2,10 @@ from utils.memory import MemoryManager
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaLLM
 import json
+import os
 
 
-def generate_sd_prompt(mem: MemoryManager, model_name="llama3") -> dict:
+def generate_sd_prompt(mem: MemoryManager, model_name="llama3", output_path: str | None = None) -> dict:
     """
     根據 MemoryManager 中的 summary 與 fact_memory
     使用 LLaMA3 產生一份適用於 Stable Diffusion 的 prompt JSON。
@@ -37,9 +38,10 @@ Extracted facts and inspiration:
     # Step 4: 嘗試轉成 JSON 格式
     try:
         result = json.loads(response)
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=2, ensure_ascii=False)
-        print(f"✅ 已將生成的 prompt 存至 {os.path.abspath(output_path)}")
+        if output_path:
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(result, f, indent=2, ensure_ascii=False)
+            print(f"✅ 已將生成的 prompt 存至 {os.path.abspath(output_path)}")
         return result
     except json.JSONDecodeError:
         print("⚠️ 模型輸出不是合法 JSON: ")
