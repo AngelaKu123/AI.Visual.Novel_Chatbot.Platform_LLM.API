@@ -1,14 +1,3 @@
-# changed for sd:
-# def process_turn
-#     from sd.prompt import generate_sd_prompt  #
-#     from utils.memory import MemoryManager  #
-#     mem = MemoryManager()  #
-#     result = generate_sd_prompt(mem, ch_name=character["name"], ch_lora=character["lora"])  #
-#     print(result)  #
-#     from sd.sd_test import generate_image_from_json  #
-#     generate_image_from_json("prompt.json", output_name=f"{character['name']}_turn.png")  #
-
-
 from typing import List, Tuple, Dict
 from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
@@ -143,10 +132,11 @@ def process_turn(
     memory.update_summary(user_input, full_reply)
     memory.extract_facts(user_input, full_reply)
 
+    # txt to image
     from sd.prompt import generate_sd_prompt  #
     from utils.memory import MemoryManager  #
     mem = MemoryManager()  #
-    result = generate_sd_prompt(mem, ch_name=character["name"], ch_lora=character["lora"])  #
+    result = generate_sd_prompt(mem, ch=character)  #
     print(result)  #
 
     from sd.sd_test import generate_image_from_json  #
