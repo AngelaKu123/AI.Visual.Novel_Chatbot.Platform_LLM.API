@@ -11,9 +11,8 @@ from langchain_ollama import OllamaLLM
 
 def generate_sd_prompt(
     mem: MemoryManager,
+    ch: dict,
     model_name: str = "llama3",
-    ch_name: str = "",
-    ch_lora: str = "",
     output_dir: Optional[Path | str] = None,
     filename: str = "prompt.json"
 ) -> dict:
@@ -60,8 +59,8 @@ Extracted facts and inspiration:
         result = json.loads(response)
 
         # prepend character + LoRA tags
-        ch_marker = f"((({ch_name})))" if ch_name else ""
-        lora_tag = f"<lora:{ch_lora}:1>" if ch_lora else ""
+        ch_marker = f"((({ch['name']})))" if ch.get("name") else ""
+        lora_tag = f"<lora:{ch['lora']}:1>" if ch.get("lora", "") else ""
         raw_prompt = result.get("prompt", "").strip()
         new_prompt = ", ".join(filter(None, [ch_marker, lora_tag, raw_prompt]))
         result["prompt"] = new_prompt
