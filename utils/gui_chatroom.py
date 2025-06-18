@@ -1,6 +1,7 @@
-import json
+import json, os, sys
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 from utils.chat_logic import build_character_chain, build_narrator_chain, process_turn, memory
 from utils.user_data import update_user_tags
 from utils.gui_helper import center_window
@@ -282,6 +283,22 @@ def open_chatroom(root, app_gui, character, user_data):
             box.append_reply(tok); scroll_bot()
         rebuild_context()
 
+    ########
+    root_dir = os.path.dirname(os.path.abspath(sys.modules['__main__'].__file__))
+    bg_photo = None
+
+    def set_feed_background(img_name):
+        nonlocal bg_photo
+        try:
+            img = Image.open(os.path.join(root_dir, img_name))
+            bg_photo = ImageTk.PhotoImage(img)
+            canvas.delete("bg")
+            canvas.create_image(0, 0, anchor="nw", image=bg_photo, tags="bg")
+            canvas.tag_lower("bg")  # keep text widgets on top
+        except Exception as exc:
+            print(f"failed to set background: {exc}")
+    ########
+    
     # ─── Send / key bindings ───
     def send(event=None):
         nonlocal last_user
@@ -307,6 +324,7 @@ def open_chatroom(root, app_gui, character, user_data):
 
         rebuild_context()
         update_user_tags(user_data, character)
+        set_feed_background(f"{character['name']}_turn.png")  ######## or your image file name
         return "break"
 
     inp.bind("<Return>", send)
