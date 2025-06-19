@@ -26,8 +26,8 @@ def generate_image_from_json(json_path: str = "prompt.json", output_name="output
         "scheduler": "Karras",
         "steps": 20,
         "cfg_scale": 7,
-        "width": 512,
-        "height": 768,
+        "width": 768,
+        "height": 512,
         "batch_size": 1,
 
     # model and processing settings
